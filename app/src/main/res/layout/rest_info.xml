@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/logo_cell_height"
+    android:layout_marginBottom="@dimen/one_dp"
+    android:layout_marginLeft="@dimen/ten_dp"
+    android:backgroundTint="@android:color/white"
+    tools:context="app.doordash.demo.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/info_holder"
+        android:layout_toLeftOf="@+id/favorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/rest_logo"
+            android:layout_width="@dimen/logo_width"
+            android:layout_height="@dimen/logo_height"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <LinearLayout
+            android:id="@+id/text_info"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/logo_height"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/ten_dp"
+            android:layout_toRightOf="@id/rest_logo"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/rest_title"
+                style="@style/LogoTitle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/thirty_dp"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tags"
+                style="@style/Logo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:gravity="center_vertical"
+                android:maxLines="1" />
+
+            <TextView
+                android:id="@+id/address"
+                style="@style/Logo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/favorites"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/favorite_states" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/info_holder"
+        android:background="@color/divider_color" />
+
+
+    <!-- Top Most Heart -->
+
+
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="app.doordash.demo.MainActivity">
+    <FrameLayout
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:id="@+id/search_button"
+        style="@style/SearchButton"
+        android:layout_width="@dimen/two_hundred_dp"
+        android:layout_height="@dimen/forty_five_dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/twenty_five_dp"
+        android:background="@drawable/search_button"
+        android:text="@string/search" />
+</RelativeLayout>
