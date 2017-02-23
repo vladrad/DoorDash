@@ -22,7 +22,7 @@ public class DoorDashService {
     private Restaurant currentRestaurant;
 
 
-    public enum DoorDashServiceEvent {RESTAURANT_SEARCH_EVENT, RESTAURANT_MENU_EVENT}
+    public enum DoorDashServiceEvent {RESTAURANT_SEARCH_EVENT, RESTAURANT_MENU_EVENT, ERROR}
 
     public class DoorDashEvent {
         public String errorMsg; // will be used for event handling

@@ -16,6 +16,7 @@ import app.doordash.demo.fragments.MapSearchFragment;
 import app.doordash.demo.fragments.RestaurantListViewFragment;
 import app.doordash.demo.http.models.restaurants.Restaurant;
 import app.doordash.demo.services.DoorDashService;
+import app.doordash.demo.util.FragmentLoader;
 
 import static app.doordash.demo.controllers.MainNavigationController.NavEvent.RESTAURANT_INFO;
 
@@ -54,18 +55,18 @@ public class MainNavigationController {
         restaurantListViewFragment = new RestaurantListViewFragment();
         restaurantListViewFragment.setRetainInstance(true);
 
-        addFragment(restaurantListViewFragment);
-        addFragment(mapSearchFragment); //add both then hide list
-        hideFragment(restaurantListViewFragment);
+        FragmentLoader.addFragment(restaurantListViewFragment,activity,R.id.fragment_holder);
+        FragmentLoader.addFragment(mapSearchFragment,activity,R.id.fragment_holder); //add both then hide list
+        FragmentLoader.hideFragment(restaurantListViewFragment,activity);
     }
 
     public void toggleView() {
         if (mapSearchFragment.isVisible()) { //toggle by hiding and showing view
-            hideFragment(mapSearchFragment);
-            showFragment(restaurantListViewFragment);
+            FragmentLoader.hideFragment(mapSearchFragment,activity);
+            FragmentLoader.showFragment(restaurantListViewFragment,activity);
         } else {
-            hideFragment(restaurantListViewFragment);
-            showFragment(mapSearchFragment);
+            FragmentLoader.hideFragment(restaurantListViewFragment,activity);
+            FragmentLoader.showFragment(mapSearchFragment,activity);
         }
     }
 
@@ -80,23 +81,6 @@ public class MainNavigationController {
         activity.startActivity(favoritesActivity);
     }
 
-    public void addFragment(Fragment fragment) { // load fragment
-        FragmentTransaction fragmentTransaction = activity.getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragment_holder, fragment);
-        fragmentTransaction.commit();
-    }
-
-    public void showFragment(Fragment fragment) { // show fragment
-        FragmentTransaction fragmentTransaction = activity.getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.show(fragment);
-        fragmentTransaction.commit();
-    }
-
-    public void hideFragment(Fragment fragment) { // hide fragment
-        FragmentTransaction fragmentTransaction = activity.getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.hide(fragment);
-        fragmentTransaction.commit();
-    }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(NavigationEvent navigationEvent) { //wait for navigation event

@@ -25,6 +25,7 @@ public class FavoritesActivity extends AppCompatActivity {
         setContentView(R.layout.list_view);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle(getString(R.string.favorites));
+
         recyclerView = (RecyclerView) findViewById(R.id.rest_list);
         restaurantRecycler = new RestaurantRecycler();
         recyclerView.setAdapter(restaurantRecycler);

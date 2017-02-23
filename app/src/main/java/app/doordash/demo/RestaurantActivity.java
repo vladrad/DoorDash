@@ -31,19 +31,20 @@ public class RestaurantActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant);
-        menuRecycler = new MenuRecycler();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setTitle(DoorDashService.get().getCurrentRestaurant().getName());
+
         singleMapViewFragment = new SingleMapViewFragment();
         singleMapViewFragment.setRestaurant(DoorDashService.get().getCurrentRestaurant());
         singleMapViewFragment.setUpMap(); //create and set up map
         FragmentLoader.loadFragment(singleMapViewFragment, this, R.id.map_fragment); //load map fragment
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        menuRecycler = new MenuRecycler();
         recyclerView = (RecyclerView) findViewById(R.id.menu_list);
         recyclerView.setAdapter(menuRecycler); //set cycler
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
-        setTitle(DoorDashService.get().getCurrentRestaurant().getName());
         DoorDashService.get().getMenu(DoorDashService.get().getCurrentRestaurant().getId());
     }
 

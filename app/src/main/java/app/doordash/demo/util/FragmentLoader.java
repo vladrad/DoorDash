@@ -20,6 +20,25 @@ public class FragmentLoader {
         fragmentTransaction.commit();
     }
 
+    public static void addFragment(Fragment fragment, AppCompatActivity activity, int id) { // load fragment
+        FragmentTransaction fragmentTransaction = activity.getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(id, fragment);
+        fragmentTransaction.commit();
+    }
+
+    public static void showFragment(Fragment fragment, AppCompatActivity activity) { // show fragment
+        FragmentTransaction fragmentTransaction = activity.getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.show(fragment);
+        fragmentTransaction.commit();
+    }
+
+    public static void hideFragment(Fragment fragment, AppCompatActivity activity) { // hide fragment
+        FragmentTransaction fragmentTransaction = activity.getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.hide(fragment);
+        fragmentTransaction.commit();
+    }
+
+
     public static void loadFragment(Fragment fragment, FragmentActivity activity, int id){ // load fragment
         FragmentTransaction fragmentTransaction = activity.getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(id,fragment);

@@ -35,7 +35,7 @@ public class FavoriteService {
     } //remove from map
 
     public boolean isFavourited(String id) {
-        return favorites.containsKey(id); // check if it is favourited
+        return favorites.containsKey(id); // check if it is in favorites
     }
 
     public List<Restaurant> getFavorites() {
